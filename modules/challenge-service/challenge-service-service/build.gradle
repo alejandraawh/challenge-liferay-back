@@ -1,0 +1,12 @@
+dependencies {
+	api project(":modules:challenge-service:challenge-service-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../challenge-service-api/src/main/java"
+	testDir = "../challenge-service-test/src/testIntegration/java"
+}
+
+group = "challenge.service"

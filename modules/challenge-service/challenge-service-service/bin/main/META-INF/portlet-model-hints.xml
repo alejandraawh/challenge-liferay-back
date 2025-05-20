@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="challenge.service.model.Registration">
+		<field name="registrationId" type="long" />
+		<field name="name" type="String" />
+		<field name="email" type="String" />
+	</model>
+</model-hints>

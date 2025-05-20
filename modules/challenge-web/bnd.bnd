@@ -1,0 +1,7 @@
+Bundle-Name: challenge-web
+Bundle-SymbolicName: challenge.web
+Bundle-Version: 1.0.0
+Export-Package: challenge.web.constants
+Provide-Capability:\
+	liferay.language.resources;\
+		resource.bundle.base.name="content.Language"

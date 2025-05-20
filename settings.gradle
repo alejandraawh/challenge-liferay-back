@@ -1,0 +1,19 @@
+buildscript {
+	dependencies {
+		classpath group: "com.liferay", name: "com.liferay.gradle.plugins.workspace", version: "12.1.11"
+	}
+
+	repositories {
+		mavenLocal()
+
+		maven {
+			url "https://repository-cdn.liferay.com/nexus/content/groups/public"
+		}
+	}
+}
+
+apply plugin: "com.liferay.workspace"
+
+include ":modules:challenge-service:challenge-service-api"
+include ":modules:challenge-service:challenge-service-service"
+include ":modules:challenge-web"

@@ -1,0 +1,10 @@
+Bundle-Name: challenge-service-api
+Bundle-SymbolicName: challenge.service.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	challenge.service.exception,\
+	challenge.service.model,\
+	challenge.service.service,\
+	challenge.service.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../challenge-service-service/service.xml
