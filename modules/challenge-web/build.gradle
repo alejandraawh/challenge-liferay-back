@@ -1,13 +1,29 @@
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url "https://repository.liferay.com/nexus/content/groups/public"
+    }
+}
+
 dependencies {
-	compileOnly group: "com.liferay.portal", name: "release.portal.api"
-	compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations", version: "1.4.0"
+    compileOnly group: "com.liferay.portal", name: "release.portal.api", version: "7.4.3-ga36"
+    compileOnly group: "org.osgi", name: "org.osgi.service.component.annotations", version: "1.4.0"
     compileOnly group: "org.osgi", name: "org.osgi.service.metatype.annotations", version: "1.4.0"
-    
-	implementation project(":modules:challenge-service:challenge-service-api")
-	implementation project(":modules:challenge-service:challenge-service-service")
-	
 
+    testImplementation group: 'javax.portlet', name: 'portlet-api', version: '2.0'
+    testImplementation group: "com.liferay.portal", name: "com.liferay.portal.kernel", version: "7.4.3-ga36"
+    testImplementation 'javax.servlet:javax.servlet-api:4.0.1'
 
-	cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "3.1.4"
-	
+    implementation project(":modules:challenge-service:challenge-service-api")
+    implementation project(":modules:challenge-service:challenge-service-service")
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:4.11.0'
+
+    cssBuilder group: "com.liferay", name: "com.liferay.css.builder", version: "3.1.4"
+}
+
+test {
+    useJUnit()
 }

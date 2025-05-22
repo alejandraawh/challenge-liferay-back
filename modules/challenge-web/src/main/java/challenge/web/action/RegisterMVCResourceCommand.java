@@ -39,8 +39,11 @@ public class RegisterMVCResourceCommand implements MVCResourceCommand {
 	@Override
 	public boolean serveResource(ResourceRequest request, ResourceResponse response) {
 		JSONObject jsonResponse = JSONFactoryUtil.createJSONObject();
+		
+		String username = ParamUtil.getString(request, "username");
+		String email = ParamUtil.getString(request, "email");
 
-		Map<String, String> errors = validateInput(request);
+		Map<String, String> errors = validateInput(username, email);
 
 		if (!errors.isEmpty()) {
 			jsonResponse.put("success", false);
@@ -49,9 +52,6 @@ public class RegisterMVCResourceCommand implements MVCResourceCommand {
 			try {
 				long id = _counterLocalService.increment();
 				Registration registration = _registrationLocalService.createRegistration(id);
-
-				String username = ParamUtil.getString(request, "username");
-				String email = ParamUtil.getString(request, "email");
 
 				registration.setName(username);
 				registration.setEmail(email);
@@ -70,11 +70,8 @@ public class RegisterMVCResourceCommand implements MVCResourceCommand {
 		return false;
 	}
 
-	private Map<String, String> validateInput(ResourceRequest request) {
+	public static Map<String, String> validateInput(String username, String email) {
 		Map<String, String> errors = new HashMap<>();
-
-		String username = ParamUtil.getString(request, "username");
-		String email = ParamUtil.getString(request, "email");
 
 		if (username == null || username.trim().isEmpty()) {
 			errors.put("username", "Name is required.");
