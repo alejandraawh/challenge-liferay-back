@@ -8,16 +8,31 @@
     <liferay-portlet:param name="mvcRenderCommandName" value="/admin/list" />
 </liferay-portlet:renderURL>
 
-<div style="text-align: center; margin-top: 40px;">
-    <h2>Bienvenido al módulo de registro de usuarios</h2>
+<section>
+  <div class="px-4 py-5 px-md-5 text-center" style="background-color: hsl(0, 0%, 96%)">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <h1 class="display-4 fw-bold mb-4">Welcome to the user registration module</h1>
+          <p class="lead mb-5" style="color: hsl(217, 10%, 50.8%)">
+            Here you can access the user registration form or manage existing registrations.
+          </p>
 
-    <div style="margin-top: 40px;">
-        <aui:a href="${userFormURL}" cssClass="btn btn-primary" style="width: 300px; margin-bottom: 20px;">
-            Ir al formulario de usuario
-        </aui:a>
-        <br />
-        <aui:a href="${adminListURL}" cssClass="btn btn-secondary" style="width: 300px;">
-            Ir a la vista de administración
-        </aui:a>
+          <div class="d-grid col-12 col-md-6 mx-auto">
+            <div class="mb-3">
+              <aui:a href="${userFormURL}" cssClass="btn btn-primary btn-lg w-100">
+                Go to the user form
+              </aui:a>
+            </div>
+            <div>
+              <aui:a href="${adminListURL}" cssClass="btn btn-outline-secondary btn-lg w-100">
+                Go to the administration view
+              </aui:a>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
-</div>
+  </div>
+</section>
